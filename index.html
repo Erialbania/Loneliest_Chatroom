@@ -6,10 +6,11 @@
     <style>
       *{
         box-sizing: border-box;
-        font-family: "Arial Black", Gadget, sans-serif
+        font-family: "Arial Black", Gadget, sans-serif;
+        list-style: none;
       }
       body{
-        background-color: lightgoldenrodyellow;
+        background-color: rgb(182, 179, 179);
       }
       #main{
         display: grid;
@@ -17,16 +18,24 @@
         grid-gap: 10px;
         margin: 0 10%;
       }
+      #headingContainer{
+        background-image: linear-gradient(to right, navy, #3e3eb4, #FFFFFF);
+      }
+
       #heading{
         display: grid;
         place-items: center;
-        background-color: aliceblue;
         border-radius: 10px;
-        padding: 30px;
+        padding: 10px;
+        background-image: url("AOL-Instant-Messenger-icon.png");
+        background-position: 0px 20px;
+        background-repeat: no-repeat;
+        color: white;
+        font-weight: normal;
       }
       h1, h3{
         margin: 0;
-        text-shadow: 3px 3px 3px lightgray;
+        /* text-shadow: 3px 3px 3px lightgray; */
       }
       #chatbox{
         height: 400px;
@@ -46,7 +55,8 @@
         border-radius: 5px;
       }
       .message:hover{
-        background-color: lightgray;
+        background-color: rgb(247, 241, 210);
+        transition-delay: 1s ease;
       }
       input{
         width: 100%;
@@ -57,9 +67,14 @@
         font-size: 1.5rem;
         padding: 5px;
         cursor: pointer;
+        background-image: url("AOL-Instant-Messenger-icon.png");
+        background-repeat: no-repeat;
+        height: 60px;
+        background-position: center;
+
       }
       .sender{
-        color: blue;
+        color: rgb(245, 42, 16);
       }
       .delete{
         cursor: pointer;
@@ -69,13 +84,15 @@
   </head>
   <body>
     <div id="main">
-      <div id="heading">
-        <h1>The Loneliest Chatroom</h1>
-        <h3>No Friends? No Problem!</h3>
+      <div id="headingContainer">
+        <div id="heading">
+          <h1>The Loneliest Chatroom</h1>
+          <h3>No Friends? Chat with Chuck Norris</h3>
+        </div>
       </div>
       <div id="chatbox">
         <div class="message" id="2">
-          <span>10:22</span>
+          <!-- <span>10:22</span>
           <span class="sender">Myself:</span>
           <span>Is it me you're looking for?</span>
           <span class="delete">❌</span>
@@ -84,13 +101,23 @@
           <span>10:21</span>
           <span class="sender">Me:</span>
           <span>Hello?</span>
-          <span class="delete">❌</span>
+          <span class="delete">❌</span>  -->
         </div>
       </div>
       <form><input type="text"/></form>
-      <button>I'm feeling Lonely!</button>
+      <button>Send Message</button> 
     </div>
-    <script>
+
+    <audio id="aol">
+      <source src="aol-noise.mp3"/>
+    </audio>
+
+    <script src="index.js">
+      const notification = document.getElementById("aol");
+      function play(audio) {
+        const audio = document.getElementById("aol");
+        audio.play();
+      }
     </script>
   </body>
 </html>
